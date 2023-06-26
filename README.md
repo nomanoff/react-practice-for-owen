@@ -43,3 +43,7 @@ After that open:
 - create comopnents for everything. E.g: ButtonComponent, InputComponent, TodoListComponent etc..
 
 - create commits often
+
+## When finished:
+
+> Send your **Pull Requests** ONLY to **dev** branch
