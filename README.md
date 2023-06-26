@@ -28,7 +28,7 @@ After that open:
 
 [http://localhost:5173/](http://localhost:5173/) to view it in your browser.
 
-## About the project:
+## About the project
 
 <a  href="/"><img  width="728"  src="/public/todo_app_figma.png"  alt="Demo"></a>
 
@@ -38,12 +38,12 @@ After that open:
 - use [redux-toolkit](https://redux-toolkit.js.org/) for State Management
 - axios for fetching api
 
-## Requirement:
+## Requirements
 
 - create comopnents for everything. E.g: ButtonComponent, InputComponent, TodoListComponent etc..
 
 - create commits often
 
-## When finished:
+## When finished
 
 > Send your **Pull Requests** ONLY to **dev** branch
