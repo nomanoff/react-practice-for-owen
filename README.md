@@ -8,7 +8,7 @@ Student: Owen [@ohjeonghwan1](https://github.com/ohjeonghwan1).
 
 ## Instructions:
 
-## 1 - Fork the project and run:
+## Fork the project and run:
 
 In the project directory
 
