@@ -33,7 +33,7 @@ After that open:
 <a  href="/"><img  width="728"  src="/public/todo_app_figma.png"  alt="Demo"></a>
 
 - use React.js with JavaScript
-- styling is done with [styled-components](https://styled-components.com/) library
+- styling is done with [styled-components](https://styled-components.com/) library (already installed!)
 - routing is done with [react-router](https://reactrouter.com/en/main) v6+
 - use [redux-toolkit](https://redux-toolkit.js.org/) for State Management
 - axios for fetching api
