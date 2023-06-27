@@ -6,7 +6,8 @@ display: inline-block;
 font-size: 20px;
 background-color: #74DF00;
 padding: 10px 25px;
-width: 600px
+width: 600px;
+font-weight: 600;
 `
 const Delete = styled.input`
 display: inline-block;
@@ -19,12 +20,18 @@ font-weight: 700;
 margin: 0 0 0 20px;
 `
 
+function List({ item, index, onDelete }) { // props를 data로 받음
 
-function List(){
+const onRemove = () => {
+    console.log(index)
+    onDelete(index);
+}
+
     return(
-        <ul>
-            <li><Todo>1. First todo</Todo><Delete type = "button" value = "Delete"></Delete></li>
-        </ul>
+        <div>
+            <Todo>{index+1}. {item}</Todo>
+            <Delete type = "button" value = "Delete" onClick={onRemove}></Delete>
+        </div>
     )
 }
 

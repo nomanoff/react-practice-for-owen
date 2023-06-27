@@ -10,21 +10,33 @@ import List from './components/todoList'
 const ListBox = styled.div`
 text-align: left;
 height: 700px;
-padding-left: 100px
+padding-left: 100px;
+overflow: scroll;
 `
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const[toDo, settoDO] = useState([]);
+
+  const HandleInput = (data) => {
+    settoDO([...toDo,data.inputValue]);
+  }
+  
+  const HandleDelete = (num) => {
+    settoDO(toDo.filter((_, i) => i !== num));
+  }
 
   return (
     <body>
     <Gray>
       <h2>To Do App</h2>
         <ListBox>
-          <List></List>
+          {toDo.map((data,index) => (
+            <List key = {index} item ={data} index = {index} onDelete = {HandleDelete}></List>
+          ))}
         </ListBox>
         <div class="input">
-          <Input></Input>
+          <Input onDataSubmit={HandleInput}></Input>
         </div>
     </Gray>
     </body>

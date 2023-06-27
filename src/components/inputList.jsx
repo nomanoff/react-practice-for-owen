@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components"
+import { useState } from "react";
 
 const ButtonInput = styled.input`
 background: #31B404;
@@ -20,13 +21,34 @@ width: 800px
 `
 
 
-function Input(){
-    return(
-        <span>
-            <InputText type ="text" placeholder="input to do List"></InputText>
-            <ButtonInput type = "button" value ="Add"></ButtonInput>
-        </span>
-    )
-}
+
+function Input({ onDataSubmit }) {
+    const [inputValue, setInputValue] = useState('');
+  
+    const handleInputChange = (e) => {
+        setInputValue(e.target.value);
+    };
+  
+    const handleSubmit = () => {
+        if(inputValue == ''){
+            return;
+        }
+        setInputValue('');
+        onDataSubmit({inputValue})
+    };
+
+    const handleOnKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            handleSubmit(); //
+        }
+    };
+  
+    return (
+      <span>
+        <InputText placeholder="input to do List" value={inputValue} onChange={handleInputChange} onKeyDown={handleOnKeyPress}/>
+        <ButtonInput type="button" value="Add" onClick={handleSubmit} />
+      </span>
+    );
+  }
 
 export default Input
