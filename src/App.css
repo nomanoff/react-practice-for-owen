@@ -4,7 +4,9 @@
   padding: 2rem;
   text-align: center;
 }
-
+.scroll::-webkit-scrollbar {
+  display: none;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
