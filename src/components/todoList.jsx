@@ -54,12 +54,10 @@ function List({ item, index, onDelete }) {
   }, [item]);
 
   const onRemove = () => {
-    console.log(index);
     onDelete(index);
   };
   
   const toDetail = () =>{
-    console.log({item})
     navigate(`/detail/${item}`);
   }
 
