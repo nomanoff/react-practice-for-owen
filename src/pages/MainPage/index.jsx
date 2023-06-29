@@ -1,11 +1,7 @@
-
 import MainPageTemplate from "./template";
 
 const MainPage = () => {
-  return (
-    <MainPageTemplate
-    />
-  );
+  return <MainPageTemplate />;
 };
 
 export default MainPage;
