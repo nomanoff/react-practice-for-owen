@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 /// 아래가 추가한 거임
 import { useDispatch } from 'react-redux';
-import { addTodo } from '../redux/todo'; 
+import { addTodo } from '../redux/todoSlice'; 
 import InputText from "./atoms/InputText";
 import ButtonInput from "./atoms/ButtonInput";
 

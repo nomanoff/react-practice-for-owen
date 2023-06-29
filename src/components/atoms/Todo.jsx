@@ -6,7 +6,7 @@ const Todo = styled.div`
   font-size: 20px;
   background-color: #E0F2F7;
   padding: 10px 15px;
-  width: 250px;
+  width: 350px;
   font-weight: 600;
   overflow: hidden;
   text-overflow: ellipsis;
