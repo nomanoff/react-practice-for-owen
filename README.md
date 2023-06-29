@@ -35,11 +35,17 @@ After that open:
 - use React.js with JavaScript ✅
 - styling is done with [styled-components](https://styled-components.com/) library (already installed!)✅
 
-- routing is done with [react-router](https://reactrouter.com/en/main) v6+
+- routing is done with [react-router](https://reactrouter.com/en/main) v6+ ✅
 
-- use [redux-toolkit](https://redux-toolkit.js.org/) for State Management
+- use [redux-toolkit](https://redux-toolkit.js.org/) for State Management ✅
 
-- axios for fetching api
+- axios for fetching api [jsonplaceholder](https://jsonplaceholder.typicode.com/guide/)
+
+task:
+
+- get all posts:
+- delete
+- create (post)
 
 ## Requirements
 
