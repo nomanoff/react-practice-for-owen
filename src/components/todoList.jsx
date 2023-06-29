@@ -7,7 +7,7 @@ import Number from "./atoms/number";
 import Cover from "./atoms/Cover";
 
 import { useDispatch,useSelector } from 'react-redux';
-import { deleteTodo } from '../redux/todoSlice'
+import { deletePostsAsync } from '../redux/todoSlice'
 
 function List({item, index}) {
   const todoRef = useRef(); // 이 부분 추가
@@ -27,7 +27,7 @@ function List({item, index}) {
   }, [item]);
 
   const onRemove = () => {
-    dispatch(deleteTodo(index)); // 추가한 거임
+    dispatch(deletePostsAsync(item));// 추가한 거임
   };
   
   const toDetail = () =>{

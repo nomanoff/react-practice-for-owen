@@ -11,7 +11,18 @@ export const getPostsAsync = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
-      
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
+export const deletePostsAsync = createAsyncThunk(
+  "todo/deletePostsAsync",
+  async (id, { rejectWithValue }) => {
+    try {
+      const response = await axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
       return response.data;
     } catch (error) {
       return rejectWithValue(error);
@@ -34,7 +45,11 @@ export const todoSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getPostsAsync.fulfilled, (state, action) => {
       console.log("내가 호출 되기는 했어");
-      state.todos = action.payload.map((post) => post.id);
+      state.todos = action.payload.map((post) => post.title);
+    })
+    .addCase(deletePostsAsync.fulfilled, (state, action) => {
+      console.log("삭제를 시도하기는 했어!");
+      state.todos = state.todos.filter((todoId) => todoId !== action.meta.arg);
     });
   },
 });
