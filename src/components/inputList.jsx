@@ -25,7 +25,7 @@ width: 800px
 
 
 
-function Input({ onDataSubmit }) {
+function Input() {
     const [inputValue, setInputValue] = useState('');
     const dispatch = useDispatch();
   
@@ -38,8 +38,7 @@ function Input({ onDataSubmit }) {
             return;
         }
         setInputValue('');
-        onDataSubmit({inputValue})
-        dispatch(addTodo(inputValue)); // 추가한 것임
+        dispatch(addTodo(inputValue)); // 추가한
     };
 
     const handleOnKeyPress = (e) => {

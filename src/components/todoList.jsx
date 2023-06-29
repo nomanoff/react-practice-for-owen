@@ -43,7 +43,7 @@ const Readmore = styled.input`
   vertical-align: middle;
 `;
 
-function List({ item, index, onDelete }) {
+function List({item, index}) {
   const todoRef = useRef(); // 이 부분 추가
   const [isOverflow, setIsOverflow] = useState(false); // 이 부분 추가
   const navigate = useNavigate(); // 이 부분 추가
@@ -61,7 +61,6 @@ function List({ item, index, onDelete }) {
   }, [item]);
 
   const onRemove = () => {
-    onDelete(index);
     dispatch(deleteTodo(index)); // 추가한 거임
   };
   
