@@ -2,15 +2,16 @@ import React from "react";
 import styled from "styled-components";
 
 const Return = styled.input`
-background: #FA5858;
-font-size: 20px;
+background: #31B404;
+font-size: 35px;
 text-color: #ffffff;
-padding: 12px 25px;
-border-color: #ff0000;
+padding: 15px 20px;
+border-color: #31B404;
 font-weight: 700;
 float: right;
 margin-top: 30px;
-margin-right: 10%;
+margin-right: 6%;
+border-radius:30px;
 `
 
 const ReturnButton = ({returnToMain}) =>{
