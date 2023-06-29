@@ -2,6 +2,10 @@ import React,{ useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 import {useNavigate} from 'react-router-dom'; // 이 부분 추가
 
+
+import { useDispatch,useSelector } from 'react-redux';
+import { deleteTodo } from '../redux/todo'
+
 const Todo = styled.div`
   display: inline-block;
   font-size: 20px;
@@ -44,6 +48,9 @@ function List({ item, index, onDelete }) {
   const [isOverflow, setIsOverflow] = useState(false); // 이 부분 추가
   const navigate = useNavigate(); // 이 부분 추가
   
+  const dispatch = useDispatch();
+  const todos = useSelector((state) => state.todo.value); // 추가
+
   useEffect(() => {
     const current = todoRef.current;
     if (current.scrollWidth > current.offsetWidth) {
@@ -55,6 +62,7 @@ function List({ item, index, onDelete }) {
 
   const onRemove = () => {
     onDelete(index);
+    dispatch(deleteTodo(index)); // 추가한 거임
   };
   
   const toDetail = () =>{

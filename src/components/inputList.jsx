@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components"
 import { useState } from "react";
+/// 아래가 추가한 거임
+import { useDispatch } from 'react-redux';
+import { addTodo } from '../redux/todo'; 
 
 const ButtonInput = styled.input`
 background: #31B404;
@@ -24,6 +27,7 @@ width: 800px
 
 function Input({ onDataSubmit }) {
     const [inputValue, setInputValue] = useState('');
+    const dispatch = useDispatch();
   
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
@@ -35,6 +39,7 @@ function Input({ onDataSubmit }) {
         }
         setInputValue('');
         onDataSubmit({inputValue})
+        dispatch(addTodo(inputValue)); // 추가한 것임
     };
 
     const handleOnKeyPress = (e) => {
