@@ -1,40 +1,48 @@
-import React from "react";
-import styled from "styled-components";
+import React,{ useRef, useEffect, useState } from "react";
+import {useNavigate} from 'react-router-dom'; // 이 부분 추가
+import Delete from "./atoms/Delete";
+import Todo from "./atoms/Todo";
+import Readmore from "./atoms/Readmore";
+import Number from "./atoms/number";
+import Cover from "./atoms/Cover";
 
-const Todo = styled.p`
-  display: inline-block;
-  font-size: 20px;
-  background-color: #74df00;
-  padding: 10px 25px;
-  width: 600px;
-  font-weight: 600;
-`;
-const Delete = styled.input`
-  display: inline-block;
-  background: #ff0000;
-  font-size: 20px;
-  text-color: #ffffff;
-  padding: 12px 25px;
-  border-color: #ff0000;
-  font-weight: 700;
-  margin: 0 0 0 20px;
-`;
+import { useDispatch,useSelector } from 'react-redux';
+import { deleteTodo } from '../redux/todo'
 
-function List({ item, index, onDelete }) {
-  // props를 data로 받음
+function List({item, index}) {
+  const todoRef = useRef(); // 이 부분 추가
+  const [isOverflow, setIsOverflow] = useState(false); // 이 부분 추가
+  const navigate = useNavigate(); // 이 부분 추가
+  
+  const dispatch = useDispatch();
+  const todos = useSelector((state) => state.todo.value); // 추가
+
+  useEffect(() => {
+    const current = todoRef.current;
+    if (current.scrollWidth > current.offsetWidth) {
+      setIsOverflow(true);
+    } else {
+      setIsOverflow(false);
+    }
+  }, [item]);
 
   const onRemove = () => {
-    console.log(index);
-    onDelete(index);
+    dispatch(deleteTodo(index)); // 추가한 거임
   };
+  
+  const toDetail = () =>{
+    navigate(`/detail/${item}`);
+  }
 
   return (
-    <div>
-      <Todo>
-        {index + 1}. {item}
+    <Cover>
+      <Number>{index+1}</Number>
+      <Todo ref={todoRef}>
+        {item}
       </Todo>
+      {isOverflow && <Readmore type="button" value="Read More" onClick={toDetail}></Readmore>}
       <Delete type="button" value="Delete" onClick={onRemove}></Delete>
-    </div>
+    </Cover>
   );
 }
 
