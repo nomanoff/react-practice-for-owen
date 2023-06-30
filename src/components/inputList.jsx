@@ -8,6 +8,7 @@ import { createPostsAsync } from "../redux/todoSlice";
 function Input() {
     const [inputValue, setInputValue] = useState('');
     const dispatch = useDispatch();
+    const randomNumber = Math.floor((Math.random() * 10)+1);
   
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
@@ -18,7 +19,7 @@ function Input() {
             return;
         }
         setInputValue('');
-        dispatch(createPostsAsync({title: inputValue, body: '', userId: 1})); // userId는 임의로 1을 넣었습니다.
+        dispatch(createPostsAsync({title: inputValue, body: '', userId: randomNumber})); // userId는 임의로 1을 넣었습니다.
     //    dispatch(addTodo(inputValue)); // 추가한
     };
 
