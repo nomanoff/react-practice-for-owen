@@ -1,14 +1,14 @@
 import React from "react";
 import { useState } from "react";
-/// 아래가 추가한 거임
 import { useDispatch } from 'react-redux';
-import { addTodo } from '../redux/todo'; 
 import InputText from "./atoms/InputText";
 import ButtonInput from "./atoms/ButtonInput";
+import { createPostsAsync } from "../redux/todoSlice";
 
 function Input() {
     const [inputValue, setInputValue] = useState('');
     const dispatch = useDispatch();
+    const randomNumber = Math.floor((Math.random() * 10)+1);
   
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
@@ -19,7 +19,8 @@ function Input() {
             return;
         }
         setInputValue('');
-        dispatch(addTodo(inputValue)); // 추가한
+        dispatch(createPostsAsync({title: inputValue, body: '', userId: randomNumber})); // userId는 임의로 1을 넣었습니다.
+    //    dispatch(addTodo(inputValue)); // 추가한
     };
 
     const handleOnKeyPress = (e) => {

@@ -6,7 +6,7 @@ const Alltext = styled.div`
 font-size: 40px;
 background: #E6E6E6;
 width: 80%;
-margin-left: 10%;
+margin-left: 6%;
 font-weight: 600;
 padding: 30px;
 text-align: left;
